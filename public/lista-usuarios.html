@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Usuários</title>
+</head>
+<body>
+  <h1>Usuários Cadastrados</h1>
+  <ul id="lista-usuarios"></ul>
+
+  <script>
+   
+   const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+  if (!usuarioLogado || usuarioLogado.role !== 'admin') {
+    alert('Acesso negado. Apenas administradores podem visualizar esta página.');
+    setTimeout(() => {
+  window.location.href = '/public/login.html';
+}, 500);}
+
+   fetch('http://localhost:3000/usuarios')
+      .then(response => response.json())
+      .then(data => {
+        const lista = document.getElementById('lista-usuarios');
+        data.forEach(usuario => {
+          const li = document.createElement('li');
+          li.innerText = `${usuario.nome} - ${usuario.email}`;
+          lista.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
