@@ -1,6 +1,6 @@
 describe('Testes negativos do cadastro', () => {
   beforeEach(() => {
-    cy.visit('/public/cadastro.html');
+    cy.visit('/cadastro.html');
   });
 
   it('Campos vazios - alerta visível', () => {
@@ -39,7 +39,7 @@ describe('Testes negativos do cadastro', () => {
     cy.request('POST', 'http://localhost:3000/usuarios', usuario);
 
     // Tentativa duplicada
-    cy.visit('/public/cadastro.html');
+    cy.visit('/cadastro.html');
     cy.get('#nome').type(usuario.nome);
     cy.get('#email').type(usuario.email);
     cy.get('#senha').type(usuario.senha);

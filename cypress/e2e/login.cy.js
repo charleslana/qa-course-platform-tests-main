@@ -2,7 +2,7 @@
 
 describe('Login de usuário', () => {
   it('Deve exibir mensagem de boas-vindas após login', () => {
-    cy.visit('public/login.html')
+    cy.visit('login.html')
     cy.get('#login-button').click()
     cy.contains('Bem-vindo!')
   })

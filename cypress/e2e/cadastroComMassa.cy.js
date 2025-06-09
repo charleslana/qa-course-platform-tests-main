@@ -2,12 +2,12 @@ describe('Cadastro com múltiplos usuários usando fixture e intercept', () => {
   beforeEach(() => {
     // Simulando a resposta da API ao cadastrar
     cy.intercept('POST', '**/usuarios', {
-  statusCode: 201,
-  body: { mensagem: 'Usuário criado com sucesso!' }
-}).as('postUsuario');
+      statusCode: 201,
+      body: { mensagem: 'Usuário criado com sucesso!' }
+    }).as('postUsuario');
 
     // Acessando a página HTML de cadastro
-    cy.visit('/public/cadastro.html');
+    cy.visit('/cadastro.html');
   });
 
   it('Deve cadastrar todos os usuários da fixture e validar a resposta da API', () => {

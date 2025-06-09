@@ -1,6 +1,6 @@
 class CadastroPage {
   visitar() {
-    cy.visit('/public/cadastro.html');
+    cy.visit('/cadastro.html');
   }
 
   preencherNome(nome) {

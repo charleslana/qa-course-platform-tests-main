@@ -4,7 +4,7 @@ describe('Listagem de usuários', () => {
     cy.intercept('GET', '**/usuarios').as('getUsuarios');
 
     // Simula login como admin ANTES da página carregar
-    cy.visit('/public/lista-usuarios.html', {
+    cy.visit('/lista-usuarios.html', {
       onBeforeLoad(win) {
         win.localStorage.setItem('usuarioLogado', JSON.stringify({
           nome: 'Felipe',

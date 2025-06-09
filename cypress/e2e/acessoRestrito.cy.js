@@ -7,7 +7,7 @@ describe('Controle de acesso por role', () => {
     };
 
     // Define localStorage antes de visitar
-    cy.visit('/public/lista-usuarios.html', {
+    cy.visit('/lista-usuarios.html', {
       onBeforeLoad(win) {
         win.localStorage.setItem('usuarioLogado', JSON.stringify(aluno));
       }
